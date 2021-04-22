@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Alap's To-Do List</title>
+        <title>YOUR To-Do List</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Alap's To-Do List</h1>
+        <h1>YOUR To-Do List</h1>
         <img id = 'icon' src ="checklist.png"> 
         <p id = '1'>Enter text into the input field to add items to your list</p>
-        <p id = '2'>Click the item to mark it as complete</p>
+        <p id = '2'>Click the item to mark it as complete, and double click to remove</p>
         <input id = 'task' type="text" placeholder = "New Task...">
         <button id = 'add'> Add</button>
+        <ul id = 'to-do'></ul> 
+        <script src='script.js'></script>
     </body>
 </html>

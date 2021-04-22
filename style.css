@@ -48,3 +48,18 @@ p{
     background-color: rgb(211, 219, 136);
     transition: 0.5s;
 }
+
+li{
+    list-style-type: none;
+    padding: 5px;
+    color: white;
+    /*background-repeat: no-repeat;
+    background-position: left center;
+    background-image: url(x.png);
+    border-image-width: 100px;
+    */
+}
+
+.cross{
+    text-decoration: line-through;
+}
