@@ -6,7 +6,7 @@ $(document).ready(
             var toAdd = $('#task').val();
             if(toAdd !== ''){
                 $('ul').append(  '<li>'  + toAdd +   '</li>'  );
-                $('task').val('');
+                $('#task').val('');
             }
         }); 
 
