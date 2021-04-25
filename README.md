@@ -4,4 +4,4 @@ A simple website where you can write a to-do list and cross tasks off or delete 
 Crossing is done by clicking the task once, deleting the task is done via double-click.
 
 TO VIEW THE SITE VVV
-https://wholesale-peaceful-diamond.glitch.me
+https://to-do-list-website.glitch.me
