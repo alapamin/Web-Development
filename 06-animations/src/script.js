@@ -31,17 +31,17 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height)
 
 //Time
-
-let time = Date.now()
+const clock = new THREE.Clock()
+// (normal way to do this) let time = Date.now()
 
 //Animations
 const tick = () =>
 {
-    const currentTime = Date.now()
-    const deltaTime = currentTime - time
-    time = currentTime
+//    const currentTime = Date.now()
+//    const deltaTime = currentTime - time
+//    time = currentTime
 
-    console.log(deltaTime)
+//    console.log(deltaTime)
 
     //update object
     mesh.rotation.x += 0.001 * deltaTime
