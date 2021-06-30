@@ -15,8 +15,6 @@ window.addEventListener('mousemove', (event) =>
 {
     cursor.x = event.clientX / sizes.width - 0.5
     cursor.y = event.clientY / sizes.height - 0.5
-
-    console.log(cursor.x)
 })
 
 /**
@@ -27,9 +25,26 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Sizes
 const sizes = {
-    width: 800,
-    height: 600
+    width: window.innerWidth,
+    height: window.innerHeight
 }
+
+//Checking for resize
+window.addEventListener('resize', () => 
+{
+    //Update Camera
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    //Change the aspect ratio of the camera
+    camera.aspect = sizes.width / sizes.height
+    //Update it
+    camera.updateProjectionMatrix()
+
+    //Update renderer (and canvas)
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
+})
 
 // Scene
 const scene = new THREE.Scene()
@@ -40,6 +55,29 @@ const mesh = new THREE.Mesh(
     new THREE.MeshBasicMaterial({ color: 0xff0000 })
 )
 scene.add(mesh)
+
+
+//going fullscreen with a doubleclick, compatible for safari as well. this updates the canvas parent to become fullscreen
+window.addEventListener('dblclick', () => 
+{
+    const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+    if(!fullscreenElement){
+        if(canvas.requestFullscreen){
+            canvas.requestFullscreen()
+        }
+        else if(canvas.webkitRequestFullscreen){
+            canvas.webkitRequestFullscreen()
+        }
+    }
+    else{
+        if(document.exitFullscreen){
+            document.exitFullscreen()
+        }
+        else if(document.webkitExitFullscreen){
+            document.webkitExitFullscreen()
+        }
+    }
+})
 
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 1, 1000)
@@ -67,6 +105,8 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
+
 
 // Animate
 const clock = new THREE.Clock()
