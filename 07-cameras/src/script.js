@@ -49,10 +49,14 @@ window.addEventListener('resize', () =>
 // Scene
 const scene = new THREE.Scene()
 
-// Object
+//Float32Array's are a lot easier for computers
+
 const mesh = new THREE.Mesh(
-    new THREE.BoxGeometry(1, 1, 1, 5, 5, 5),
-    new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    new THREE.BoxGeometry(1, 1, 1, 2, 2, 2),
+    new THREE.MeshBasicMaterial(
+        { color: 0xff0000, 
+            wireframe: true
+        })
 )
 scene.add(mesh)
 
