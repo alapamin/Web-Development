@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import * as dat from 'dat.gui'
 
 /**
- * Debug
+ * Debug GUI
  */
 
 const gui = new dat.GUI({width: 400})
